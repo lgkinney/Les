@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Les Kinney | Amelia Earhart: A Life Before the Silence</title>
+  <style>
+    :root {
+      --ink: #151922;
+      --paper: #f4efe6;
+      --cream: #fff7e6;
+      --gold: #c79a46;
+      --blue: #0f2f3f;
+      --sea: #153f52;
+      --muted: #6d675d;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      line-height: 1.05;
+      margin: 0;
+    }
+
+    a { color: inherit; }
+
+    .hero {
+      min-height: 92vh;
+      color: var(--cream);
+      background:
+        linear-gradient(rgba(7, 18, 25, .55), rgba(7, 18, 25, .72)),
+        url("images/earhart-cover-working.jpg") center/cover no-repeat;
+      display: grid;
+      align-items: center;
+      padding: 48px 7vw;
+    }
+
+    .nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 7vw;
+      color: var(--cream);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: .78rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+    }
+
+    .hero-inner {
+      max-width: 880px;
+      margin-top: 60px;
+    }
+
+    .kicker {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: .82rem;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6.9rem);
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      text-shadow: 0 3px 18px rgba(0,0,0,.35);
+    }
+
+    .subtitle {
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      color: #e9bf74;
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      margin-top: 10px;
+    }
+
+    .hero-copy {
+      max-width: 620px;
+      font-size: 1.12rem;
+      margin: 30px 0 34px;
+      color: rgba(255, 247, 230, .92);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 22px;
+      border: 1px solid var(--gold);
+      color: var(--cream);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    .button.primary {
+      background: var(--gold);
+      color: #111;
+    }
+
+    section {
+      padding: 76px 7vw;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(260px, 390px) 1fr;
+      gap: 54px;
+      align-items: center;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .portrait {
+      width: 100%;
+      border-radius: 2px;
+      box-shadow: 0 28px 70px rgba(0,0,0,.24);
+      border: 8px solid #fffaf0;
+    }
+
+    .section-label {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: .78rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .bio h2, .book h2, .contact h2, .board h2 {
+      font-size: clamp(2.1rem, 4vw, 3.5rem);
+      color: var(--blue);
+      margin-bottom: 22px;
+    }
+
+    .bio p, .book p, .contact p, .board p {
+      font-size: 1.03rem;
+      color: #2d2b27;
+      max-width: 820px;
+    }
+
+    .book {
+      background: #102f3d;
+      color: var(--cream);
+    }
+
+    .book-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .book h2, .book p { color: var(--cream); }
+    .book p { color: rgba(255,247,230,.88); }
+
+    .cover-card {
+      border: 1px solid rgba(199,154,70,.45);
+      padding: 34px;
+      min-height: 520px;
+      background:
+        linear-gradient(rgba(5,20,28,.2), rgba(5,20,28,.82)),
+        url("images/working-cover.jpg") center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      box-shadow: 0 24px 60px rgba(0,0,0,.35);
+    }
+
+    .cover-card h3 {
+      font-size: clamp(2.4rem, 5vw, 4.4rem);
+      color: var(--cream);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .cover-card .small-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      color: #e5b35d;
+      font-size: 1.45rem;
+      margin-top: 8px;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .fact {
+      border-top: 1px solid rgba(199,154,70,.55);
+      padding-top: 14px;
+      color: rgba(255,247,230,.9);
+      font-size: .96rem;
+    }
+
+    .contact-board {
+      background: #fffaf0;
+    }
+
+    .contact-board-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 42px;
+      align-items: start;
+    }
+
+    .email-card, .message-card {
+      background: white;
+      padding: 34px;
+      border: 1px solid #e6dcc9;
+      box-shadow: 0 18px 50px rgba(15,47,63,.08);
+    }
+
+    label {
+      display: block;
+      margin-top: 16px;
+      margin-bottom: 6px;
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    input, textarea {
+      width: 100%;
+      border: 1px solid #d6cbb7;
+      padding: 13px 14px;
+      font: inherit;
+      background: #fffdf8;
+    }
+
+    textarea { min-height: 150px; resize: vertical; }
+
+    button {
+      margin-top: 18px;
+      background: var(--blue);
+      color: white;
+      border: 0;
+      padding: 13px 22px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .board-note {
+      font-size: .9rem;
+      color: var(--muted);
+      margin-top: 16px;
+    }
+
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,.76);
+      padding: 28px 7vw;
+      font-size: .9rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 850px) {
+      .nav { position: static; background: #0b2531; }
+      .nav-links { display: none; }
+      .two-col, .book-grid, .contact-board-grid { grid-template-columns: 1fr; }
+      .hero { min-height: 82vh; }
+      .facts { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="top">
+    <nav class="nav">
+      <div>Les Kinney</div>
+      <div class="nav-links">
+        <a href="#book">The Book</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#board">Message Board</a>
+      </div>
+    </nav>
+
+    <div class="hero-inner">
+      <div class="kicker">A major new biography of Amelia Earhart</div>
+      <h1>Amelia Earhart</h1>
+      <div class="subtitle">A Life Before the Silence</div>
+      <p class="hero-copy">Former federal investigator Les Kinney re-examines the woman behind the legend, tracing Earhart’s complicated life, her rise to fame, and the unresolved questions that followed her final flight.</p>
+      <div class="button-row">
+        <a class="button primary" href="#book">Explore the Book</a>
+        <a class="button" href="#about">Meet Les</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="bio" id="about">
+    <div class="two-col">
+      <img class="portrait" src="images/les-kinney.jpg" alt="Les Kinney" />
+      <div>
+        <div class="section-label">About the Author</div>
+        <h2>Les Kinney: Investigator. Researcher. Biographer.</h2>
+        <p>Les has spent more than twenty-five years at the forefront of Amelia Earhart research. A former Treasury agent and Special Agent in Charge of multiple U.S. Customs field offices, his investigative career began with the Office of Naval Intelligence and later Treasury assignments in Washington, D.C., where he directed complex criminal investigations involving money laundering, organized crime, and weapons trafficking. He also served as liaison to the CIA, Pentagon, and State Department.</p>
+        <p>While stationed in Honolulu, Les developed intelligence-sharing networks across the Pacific. Multiple trips to remote islands exposed him to long-standing local accounts surrounding Earhart’s disappearance, transforming a professional curiosity into a decades-long investigation.</p>
+        <p>Les also served as assistant producer on the most-watched documentary ever made about Earhart’s disappearance, a project that still draws worldwide attention over her fate.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="book" id="book">
+    <div class="book-grid">
+      <div>
+        <div class="section-label">Upcoming Biography</div>
+        <h2>A woman more complicated than the legend allowed.</h2>
+        <p>Drawing on new archival discoveries, foreign travel, FOIA litigation, interviews, and on‑the‑ground fieldwork, Les Kinney re‑examines the woman behind the legend—peeling away the polished myths. Behind the smiling publicity shots lies a far more complicated story, obscured for decades by half‑told accounts, family coverups, abandonment, and biographers too eager to protect a legacy.
+        <p>This is the Earhart story you’ve never heard: a tangled web of ambition, deception, and moral compromise stretching from the rocky beaches of Malibu to the streets of Manhatttan&mdashcomplete with courtroom battles, hidden relationships, and a lawsuit that nearly destroyed the family’s name. With her flaws laid bare, Amelia Earhart emerges not as an untouchable icon, but unmistakably human.
+        <p>And for the first time, this work turns to her disappearance with the same unflinching lens—revealing how the life she chose to live shaped her final flight into silence.
+
+        </p>
+        <p>A Life Before the Silence (working title) opens the door to a second volume grounded in newly uncovered evidence. The first accurate telling of what transpired after Amelia and Fred Noonan vanished&mdash;a story some will not want to hear&mdash;a story that will "stagger your imagination."</p>
+        <div class="facts">
+          <div class="fact">Primary-source driven research</div>
+          <div class="fact">Pacific fieldwork and interviews</div>
+          <div class="fact">Foreign archival material</div>
+          <div class="fact">FOIA requests and litigation</div>
+        </div>
+      </div>
+      <div class="cover-card" aria-label="Working book cover concept">
+        <h3>Amelia Earhart</h3>
+        <div class="small-title">A Life Before the Silence</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-board" id="contact">
+    <div class="contact-board-grid">
+      <div class="email-card contact">
+        <div class="section-label">Email</div>
+        <h2>Contact Les</h2>
+        <p>For research inquiries, media requests, speaking invitations, or questions about the upcoming biography:</p>
+        <p><strong><a href="mailto:lgkinney@yahoo.com">lgkinney@yahoo.com</a></strong></p>
+      </div>
+
+
+ <div class="message-card board" id="board">
+  <div class="section-label">Message Board</div>
+  <h2>Ask a Question</h2>
+  <p>Use this space for reader questions, research leads, and discussion about Amelia Earhart’s life and disappearance.</p>
+
+  <!-- Giscus comment system -->
+  <script src="https://giscus.app/client.js"
+          data-repo="Lgkinney/Les"
+          data-repo-id="R_kgDOS3Izog"
+          data-category="General"
+          data-category-id="DIC_kwDOS3Izos4C-7fq"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="light"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+  </script>
+
+</div>
+
+
+  </section>
+
+  <footer>
+    <div>© Les Kinney. All rights reserved.</div>
+    <div>Amelia Earhart: A Life Before the Silence</div>
+  </footer>
+</body>
+</html>
