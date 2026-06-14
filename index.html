@@ -183,32 +183,29 @@
     .book h2, .book p { color: var(--cream); }
     .book p { color: rgba(255,247,230,.88); }
 
-    .cover-card {
-      border: 1px solid rgba(199,154,70,.45);
-      padding: 34px;
-      min-height: 520px;
-      background:
-        linear-gradient(rgba(5,20,28,.2), rgba(5,20,28,.82)),
-        url("images/working-cover.jpg") center/cover no-repeat;
+    .cover-wrap {
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      box-shadow: 0 24px 60px rgba(0,0,0,.35);
+      align-items: center;
     }
 
-    .cover-card h3 {
-      font-size: clamp(2.4rem, 5vw, 4.4rem);
+    .cover-label {
       color: var(--cream);
       text-transform: uppercase;
-      letter-spacing: .04em;
+      letter-spacing: .14em;
+      font-size: .78rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      text-align: center;
     }
 
-    .cover-card .small-title {
-      font-family: Georgia, "Times New Roman", serif;
-      font-style: italic;
-      color: #e5b35d;
-      font-size: 1.45rem;
-      margin-top: 8px;
+    .cover-image {
+      width: 100%;
+      max-width: 480px;
+      justify-self: center;
+      display: block;
+      border: 1px solid rgba(199,154,70,.45);
+      box-shadow: 0 24px 60px rgba(0,0,0,.35);
     }
 
     .facts {
@@ -347,7 +344,7 @@
         <div class="section-label">Upcoming Biography</div>
         <h2>A woman more complicated than the legend allowed.</h2>
         <p>Drawing on new archival discoveries, foreign travel, FOIA litigation, interviews, and on‑the‑ground fieldwork, Les Kinney re‑examines the woman behind the legend—peeling away the polished myths. Behind the smiling publicity shots lies a far more complicated story, obscured for decades by half‑told accounts, family coverups, abandonment, and biographers too eager to protect a legacy.
-        <p>This is the Earhart story you’ve never heard: a tangled web of ambition, deception, and moral compromise stretching from the rocky beaches of Malibu to the streets of Manhatttan&mdashcomplete with courtroom battles, hidden relationships, and a lawsuit that nearly destroyed the family’s name. With her flaws laid bare, Amelia Earhart emerges not as an untouchable icon, but unmistakably human.
+        <p>This is the Earhart story you’ve never heard: a tangled web of ambition, deception, and moral compromise stretching from the rocky beaches of Malibu to the streets of Manhatttan, with courtroom battles, hidden relationships, and a lawsuit that nearly destroyed the family’s name. With her flaws laid bare, Amelia Earhart emerges not as an untouchable icon, but unmistakably human.
         <p>And for the first time, this work turns to her disappearance with the same unflinching lens—revealing how the life she chose to live shaped her final flight into silence.
 
         </p>
@@ -359,9 +356,9 @@
           <div class="fact">FOIA requests and litigation</div>
         </div>
       </div>
-      <div class="cover-card" aria-label="Working book cover concept">
-        <h3>Amelia Earhart</h3>
-        <div class="small-title">A Life Before the Silence</div>
+      <div class="cover-wrap">
+        <div class="cover-label">Working Title</div>
+        <img class="cover-image" src="images/book-cover.png" alt="Book cover: Amelia Earhart, A Life Before the Silence, by Les Kinney" />
       </div>
     </div>
   </section>
